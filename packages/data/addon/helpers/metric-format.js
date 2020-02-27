@@ -14,11 +14,11 @@ import { get } from '@ember/object';
 import { isPresent } from '@ember/utils';
 import Helper from '@ember/component/helper';
 
-export default Helper.extend({
+export default class MetricFormatHelper extends Helper {
   /**
    * @property {Service} metricName
    */
-  metricName: service(),
+  @service metricName;
 
   /**
    * returns formatted metric
@@ -37,7 +37,7 @@ export default Helper.extend({
     }
     return metricFormat(metric, longName);
   }
-});
+}
 
 function _formatParameters(obj) {
   return Object.entries(obj)
